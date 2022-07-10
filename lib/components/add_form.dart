@@ -1,22 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:fluttertodolist/bloc/todolist_bloc.dart';
+import 'package:fluttertodolist/cubit/todocub_cubit.dart';
 
 class AddFormWidget extends StatefulWidget {
+  const AddFormWidget({Key? key}) : super(key: key);
+
   @override
   State<AddFormWidget> createState() => _AddFormWidgetState();
 }
 
 class _AddFormWidgetState extends State<AddFormWidget> {
   final textController = TextEditingController();
-
   final _formKey = GlobalKey<FormState>();
-
-  @override
-  void initState() {
-    // TODO: implement initState
-    super.initState();
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -40,9 +35,7 @@ class _AddFormWidgetState extends State<AddFormWidget> {
             child: ElevatedButton(
                 onPressed: () {
                   if (_formKey.currentState!.validate()) {
-                    context
-                        .read<TodolistBloc>()
-                        .add(TodolistAddItemEvent(item: textController.text));
+                    context.read<TodocubCubit>().addItem(textController.text);
                     setState(() {
                       textController.clear();
                     });

@@ -4,6 +4,8 @@ import 'package:fluttertodolist/components/clear_list.dart';
 import 'package:fluttertodolist/components/render_list.dart';
 
 class HomePage extends StatelessWidget {
+  const HomePage({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -38,7 +40,7 @@ class HomePage extends StatelessWidget {
               ),
               margin: const EdgeInsets.symmetric(horizontal: 16, vertical: 0),
               child: Column(children: [
-                AddFormWidget(),
+                const AddFormWidget(),
                 Expanded(
                   child: Container(
                     padding: const EdgeInsets.only(
@@ -46,10 +48,10 @@ class HomePage extends StatelessWidget {
                       left: 16,
                       right: 16,
                     ),
-                    child: RenderListWidget(),
+                    child: const RenderListWidget(),
                   ),
                 ),
-                ClearListWidget()
+                const ClearListWidget()
               ]),
             ),
           ),

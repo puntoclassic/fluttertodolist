@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:fluttertodolist/bloc/todolist_bloc.dart';
+import 'package:fluttertodolist/cubit/todocub_cubit.dart';
 import 'package:fluttertodolist/screens/homepage.dart';
 
 void main() {
   runApp(
     BlocProvider(
-      create: (context) => TodolistBloc(),
+      create: (context) => TodocubCubit(),
       child: const MyApp(),
     ),
   );
@@ -34,7 +34,7 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.blue,
         scaffoldBackgroundColor: Colors.blue,
       ),
-      home: HomePage(),
+      home: const HomePage(),
     );
   }
 }
