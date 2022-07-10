@@ -7,7 +7,7 @@ class RenderListWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocBuilder<TodocubCubit, TodocubState>(
+    return BlocBuilder<TodolistCubit, TodolistCubitState>(
       builder: (context, state) {
         return CustomScrollView(
           slivers: [
@@ -29,7 +29,7 @@ class RenderListWidget extends StatelessWidget {
                         ),
                         IconButton(
                           onPressed: () {
-                            context.read<TodocubCubit>().deleteItem(index);
+                            context.read<TodolistCubit>().deleteItem(index);
                           },
                           icon: const Icon(Icons.delete),
                         )

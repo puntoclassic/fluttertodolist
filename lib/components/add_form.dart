@@ -18,11 +18,14 @@ class _AddFormWidgetState extends State<AddFormWidget> {
     return Form(
       key: _formKey,
       child: Column(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        mainAxisAlignment: MainAxisAlignment.center,
         crossAxisAlignment: CrossAxisAlignment.end,
         children: [
           TextFormField(
             controller: textController,
+            decoration: const InputDecoration(
+              label: Text("Inserisci una descrizione"),
+            ),
             validator: (value) {
               if (value == null || value.isEmpty) {
                 return "Inserisci un valore";
@@ -35,10 +38,11 @@ class _AddFormWidgetState extends State<AddFormWidget> {
             child: ElevatedButton(
                 onPressed: () {
                   if (_formKey.currentState!.validate()) {
-                    context.read<TodocubCubit>().addItem(textController.text);
+                    context.read<TodolistCubit>().addItem(textController.text);
                     setState(() {
                       textController.clear();
                     });
+                    Navigator.of(context).pop();
                   }
                 },
                 child: const Text("Aggiungi")),

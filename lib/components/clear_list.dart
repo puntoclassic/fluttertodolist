@@ -11,7 +11,7 @@ class ClearListWidget extends StatelessWidget {
     return Row(children: [
       TextButton(
           onPressed: () {
-            context.read<TodocubCubit>().clearList();
+            context.read<TodolistCubit>().clearList();
           },
           child: const Text("Svuota lista"))
     ]);

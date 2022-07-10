@@ -1,25 +1,25 @@
 import 'package:bloc/bloc.dart';
 
-class TodocubState {
+class TodolistCubitState {
   final List<String> items;
 
-  TodocubState(this.items);
+  TodolistCubitState(this.items);
 }
 
-class TodocubCubit extends Cubit<TodocubState> {
-  TodocubCubit() : super(TodocubState([]));
+class TodolistCubit extends Cubit<TodolistCubitState> {
+  TodolistCubit() : super(TodolistCubitState([]));
 
   addItem(String item) {
-    emit(TodocubState([...state.items, item]));
+    emit(TodolistCubitState([...state.items, item]));
   }
 
   deleteItem(int index) {
     state.items.removeAt(index);
-    emit(TodocubState(state.items));
+    emit(TodolistCubitState(state.items));
   }
 
   clearList() {
     state.items.clear();
-    emit(TodocubState([]));
+    emit(TodolistCubitState([]));
   }
 }

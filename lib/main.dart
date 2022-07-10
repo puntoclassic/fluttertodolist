@@ -6,7 +6,7 @@ import 'package:fluttertodolist/screens/homepage.dart';
 void main() {
   runApp(
     BlocProvider(
-      create: (context) => TodocubCubit(),
+      create: (context) => TodolistCubit(),
       child: const MyApp(),
     ),
   );

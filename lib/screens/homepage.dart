@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:fluttertodolist/components/add_button.dart';
 import 'package:fluttertodolist/components/add_form.dart';
 import 'package:fluttertodolist/components/clear_list.dart';
 import 'package:fluttertodolist/components/render_list.dart';
@@ -39,20 +40,23 @@ class HomePage extends StatelessWidget {
                 ),
               ),
               margin: const EdgeInsets.symmetric(horizontal: 16, vertical: 0),
-              child: Column(children: [
-                const AddFormWidget(),
-                Expanded(
-                  child: Container(
-                    padding: const EdgeInsets.only(
-                      top: 16,
-                      left: 16,
-                      right: 16,
+              child: Column(
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  crossAxisAlignment: CrossAxisAlignment.end,
+                  children: [
+                    const AddButtonWidget(),
+                    Expanded(
+                      child: Container(
+                        padding: const EdgeInsets.only(
+                          top: 16,
+                          left: 16,
+                          right: 16,
+                        ),
+                        child: const RenderListWidget(),
+                      ),
                     ),
-                    child: const RenderListWidget(),
-                  ),
-                ),
-                const ClearListWidget()
-              ]),
+                    const ClearListWidget()
+                  ]),
             ),
           ),
         ]),
